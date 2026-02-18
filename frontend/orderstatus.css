@@ -1,0 +1,101 @@
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+}
+
+/* ===== HEADER ===== */
+.main-header {
+    text-align: center;
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.main-header p {
+    margin-top: 5px;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* ===== ORDER CONTAINER ===== */
+.order-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* ===== ORDER BOX ===== */
+.order-box {
+    background: white;
+    width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.order-box h2 {
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+.order-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* ===== ORDER DETAILS ===== */
+.order-info {
+    text-align: left;
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.order-info p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* ===== STATUS BADGE ===== */
+.status {
+    color: white;
+    background: #4caf50;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+    text-align: center;
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}

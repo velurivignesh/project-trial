@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Prices | Farm & Freshness</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="liveprize.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+    <h1>🌿 Farm & Freshness</h1>
+    <p>Live Market Prices</p>
+</header>
+
+<!-- ✅ FARMER PROFILE BUTTON ADDED HERE -->
+<div style="text-align:center; margin:15px 0;">
+    <button onclick="goToFarmerProfile()" 
+        style="padding:10px 20px; font-size:16px; cursor:pointer; 
+        background-color:#4CAF50; color:white; border:none; border-radius:6px;">
+        👨‍🌾 View Farmer Profile
+    </button>
+</div>
+
+<!-- ===== LIVE PRICE CONTENT ===== -->
+<div class="live-container">
+    <div class="price-box">
+        <h2>Today's Live Vegetable Prices</h2>
+
+        <div class="price-item">
+            🍅 Tomato - ₹30 / kg
+        </div>
+
+        <div class="price-item">
+            🧅 Onion - ₹25 / kg
+        </div>
+
+        <div class="price-item">
+            🥔 Potato - ₹20 / kg
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="main-footer">
+    <p>© 2026 Farm & Freshness | Supporting Local Farmers 🌱</p>
+</footer>
+
+<script>
+function goToFarmerProfile() {
+    window.location.href = "farmerprofile.html";
+}
+</script>
+
+</body>
+</html>

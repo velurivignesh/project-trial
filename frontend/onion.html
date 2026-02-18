@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Onion | Farm to Customer</title>
+  <link rel="stylesheet" href="onion.css">
+</head>
+<body>
+
+<div class="order-page">
+
+  <!-- LEFT SIDE : PRODUCT DETAILS -->
+  <div class="order-summary">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Onions.jpg">
+
+    <h2>Fresh Onion</h2>
+
+    <p>
+      Farm fresh onions directly from farmers.  
+      Best quality and naturally grown.
+    </p>
+
+    <div class="price-box">
+      ₹<span id="pricePerKg">25</span> / kg
+    </div>
+
+  </div>
+
+
+
+  <!-- RIGHT SIDE : ORDER FORM -->
+  <div class="order-form">
+
+    <h2>Place Your Order</h2>
+
+    <form id="orderForm">
+
+      <label>Quantity (kg)</label>
+      <input type="number" id="quantity" min="1" required>
+
+      <label>Customer Name</label>
+      <input type="text" id="name" required>
+
+      <label>Mobile Number</label>
+      <input type="tel" id="mobile" required>
+
+      <label>Delivery Address</label>
+      <textarea id="address" required></textarea>
+
+
+      <!-- TOTAL -->
+      <div class="total-box">
+        Total: ₹<span id="totalAmount">25</span>
+      </div>
+
+
+      <button type="submit">
+        Place Order
+      </button>
+
+      <p id="message"></p>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const pricePerKg = 25;
+
+
+// Auto calculate total
+document.getElementById("quantity").addEventListener("input", function()
+{
+    const qty = this.value || 1;
+    const total = qty * pricePerKg;
+
+    document.getElementById("totalAmount").innerText = total;
+});
+
+
+
+
+// Submit order
+document.getElementById("orderForm").addEventListener("submit", async function(e)
+{
+    e.preventDefault();
+
+    const orderData =
+    {
+        customerName: document.getElementById("name").value,
+        productName: "Onion",
+        quantity: document.getElementById("quantity").value + " kg",
+        address: document.getElementById("address").value,
+        phone: document.getElementById("mobile").value
+    };
+
+
+    try
+    {
+        const response = await fetch("http://localhost:5000/place-order",
+        {
+            method: "POST",
+            headers:
+            {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderData)
+        });
+
+
+        const result = await response.json();
+
+
+        document.getElementById("message").innerHTML =
+        "✅ Order placed successfully! Redirecting to payment...";
+
+
+        // Redirect to payment page
+        setTimeout(() =>
+        {
+            window.location.href =
+            "payment.html?product=Onion&amount=" +
+            (document.getElementById("quantity").value * pricePerKg);
+
+        }, 1500);
+
+
+    }
+    catch(error)
+    {
+        document.getElementById("message").innerHTML =
+        "❌ Cannot connect to backend. Start server.";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

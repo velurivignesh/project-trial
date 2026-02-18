@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Place Order | Farm to Customer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="order.css">
+
+</head>
+
+<body>
+
+
+<div class="order-container">
+
+  <div class="order-box">
+
+    <h2>Place Your Order</h2>
+
+    <p>Fill the details to order fresh vegetables</p>
+
+
+    <!-- ORDER FORM -->
+    <form id="orderForm">
+
+      <input 
+        type="text" 
+        id="customerName" 
+        placeholder="Enter your name"
+        required
+      >
+
+      <input 
+        type="text" 
+        id="productName" 
+        placeholder="Enter product name"
+        required
+      >
+
+      <input 
+        type="text" 
+        id="quantity" 
+        placeholder="Enter quantity (kg)"
+        required
+      >
+
+      <textarea 
+        id="address" 
+        placeholder="Enter delivery address"
+        required
+      ></textarea>
+
+      <input 
+        type="text" 
+        id="phone" 
+        placeholder="Enter phone number"
+        required
+      >
+
+      <button type="submit">
+        Place Order
+      </button>
+
+    </form>
+
+
+    <p id="message"></p>
+
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+document.getElementById("orderForm").addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const customerName = document.getElementById("customerName").value;
+  const productName = document.getElementById("productName").value;
+  const quantity = document.getElementById("quantity").value;
+  const address = document.getElementById("address").value;
+  const phone = document.getElementById("phone").value;
+
+
+  try {
+
+    const response = await fetch("http://localhost:5000/place-order", {
+
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        customerName,
+        productName,
+        quantity,
+        address,
+        phone
+      })
+
+    });
+
+
+    const data = await response.json();
+
+
+    if(response.ok){
+
+      document.getElementById("message").innerHTML =
+        "✅ Order placed successfully!";
+
+      document.getElementById("orderForm").reset();
+
+    }
+    else{
+
+      document.getElementById("message").innerHTML =
+        "❌ Failed to place order";
+
+    }
+
+  }
+  catch(error){
+
+    document.getElementById("message").innerHTML =
+      "❌ Server error. Please try again.";
+
+  }
+
+});
+
+</script>
+
+
+</body>
+</html>

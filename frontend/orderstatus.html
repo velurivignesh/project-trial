@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Status | Farm & Freshness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="orderstatus.css">
+</head>
+
+<body>
+
+<header class="main-header">
+    <h1>🌿 Farm & Freshness</h1>
+    <p>Track Your Order Status</p>
+</header>
+
+<!-- ✅ LIVE PRICE BUTTON ADDED HERE -->
+<div style="text-align:center; margin:15px 0;">
+    <button onclick="goToLivePrice()" 
+        style="padding:10px 20px; font-size:16px; cursor:pointer; 
+        background-color:#4CAF50; color:white; border:none; border-radius:6px;">
+        📊 View Live Price
+    </button>
+</div>
+
+<div class="order-container">
+
+    <div class="order-box">
+
+        <h2>🛒 Order Status</h2>
+        <p>Your latest order details</p>
+
+        <div id="orderDetails">
+            <p>Loading order details...</p>
+        </div>
+
+        <button onclick="goHome()">Back to Home</button>
+
+    </div>
+
+</div>
+
+<footer class="main-footer">
+    <p>© 2026 Farm & Freshness | Fresh from Farmers 🌱</p>
+</footer>
+
+<script>
+
+async function loadOrders() {
+
+    try {
+
+        const response = await fetch("http://localhost:5000/orders");
+        const orders = await response.json();
+
+        if (!orders || orders.length === 0) {
+            document.getElementById("orderDetails").innerHTML =
+                "<p>No orders found.</p>";
+            return;
+        }
+
+        // Latest order (newest)
+        const order = orders[orders.length - 1];
+
+        // Status color
+        let statusColor = "#ff9800"; // Pending default
+
+        if(order.status === "Delivered"){
+            statusColor = "#4caf50";
+        }
+        else if(order.status === "Cancelled"){
+            statusColor = "#f44336";
+        }
+
+        document.getElementById("orderDetails").innerHTML = `
+            <div class="order-info">
+                <p><strong>Order ID:</strong> ${order._id}</p>
+                <p><strong>Customer Name:</strong> ${order.customerName}</p>
+                <p><strong>Product:</strong> ${order.productName}</p>
+                <p><strong>Quantity:</strong> ${order.quantity}</p>
+                <p><strong>Address:</strong> ${order.address}</p>
+                <p><strong>Phone:</strong> ${order.phone}</p>
+                <p><strong>Status:</strong> 
+                    <span class="status" style="background:${statusColor}">
+                        ${order.status}
+                    </span>
+                </p>
+                <p><strong>Order Date:</strong> 
+                    ${new Date(order.orderDate).toLocaleString()}
+                </p>
+            </div>
+        `;
+
+    } catch (error) {
+
+        document.getElementById("orderDetails").innerHTML =
+            "<p>⚠ Unable to load orders. Please check backend.</p>";
+
+        console.error("Error:", error);
+    }
+}
+
+function goHome() {
+    window.location.href = "homepage.html";
+}
+
+// ✅ FUNCTION FOR LIVE PRICE PAGE
+function goToLivePrice() {
+    window.location.href = "liveprize.html";
+}
+
+loadOrders();
+
+</script>
+
+</body>
+</html>

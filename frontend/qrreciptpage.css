@@ -1,0 +1,170 @@
+/* ===== GLOBAL STYLING ===== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+}
+
+/* ===== HEADER ===== */
+.main-header {
+    text-align: center;
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.main-header p {
+    margin-top: 5px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ===== MAIN RECEIPT CARD ===== */
+.farmer-page {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.farmer-card {
+    background: white;
+    width: 900px;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* ===== LEFT SIDE (QR SECTION) ===== */
+.farmer-left {
+    background: #4caf50;
+    color: white;
+    width: 35%;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.farmer-left h2 {
+    margin-bottom: 10px;
+}
+
+.farmer-left p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.farmer-left img {
+    margin-top: 15px;
+    width: 150px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ===== RIGHT SIDE (ORDER DETAILS) ===== */
+.farmer-right {
+    width: 65%;
+    padding: 30px;
+}
+
+.farmer-right h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* ===== ORDER INFO GRID ===== */
+.farmer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.info-box {
+    background: #e8f5e9;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* ===== TOTAL SECTION ===== */
+.farmer-about {
+    margin-top: 20px;
+}
+
+.farmer-about h4 {
+    color: #388e3c;
+    margin-bottom: 5px;
+}
+
+.farmer-about p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* ===== PAYMENT STATUS ===== */
+.product-tags span {
+    display: inline-block;
+    background: #c8e6c9;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* ===== BUTTONS ===== */
+.farmer-actions {
+    margin-top: 25px;
+}
+
+.btn {
+    text-decoration: none;
+    background: #2e7d32;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-right: 10px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #1b5e20;
+}
+
+.secondary-btn {
+    background: #66bb6a;
+}
+
+.secondary-btn:hover {
+    background: #388e3c;
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+    text-align: center;
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* ===== PRINT STYLE ===== */
+@media print {
+    .btn {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .main-header, .main-footer {
+        display: none;
+    }
+}

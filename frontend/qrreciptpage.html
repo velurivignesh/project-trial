@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Receipt | Farm & Freshness</title>
+    <link rel="stylesheet" href="qrreciptpage.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+    <h1>🌿 Farm & Freshness</h1>
+    <p>Payment Receipt & QR Confirmation</p>
+</header>
+
+<!-- ===== RECEIPT SECTION ===== -->
+<div class="farmer-page">
+    <div class="farmer-card">
+
+        <!-- LEFT SIDE -->
+        <div class="farmer-left">
+            <h2>🧾 Payment Receipt</h2>
+            <p>Order ID: #FF2026</p>
+            <p>Date: 14-02-2026</p>
+
+            <div style="margin-top:20px;">
+                <h3>Scan QR</h3>
+                <img src="qr.png" alt="QR Code" style="width:150px; background:white; padding:10px; border-radius:10px;">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="farmer-right">
+
+            <h3>Order Summary</h3>
+
+            <div class="farmer-info">
+                <div class="info-box">🍅 Tomato - 2kg</div>
+                <div class="info-box">₹80</div>
+
+                <div class="info-box">🥔 Potato - 3kg</div>
+                <div class="info-box">₹90</div>
+
+                <div class="info-box">🧅 Onion - 1kg</div>
+                <div class="info-box">₹35</div>
+            </div>
+
+            <div class="farmer-about">
+                <h4>Total Amount</h4>
+                <p style="font-size:18px; font-weight:bold; color:#2e7d32;">
+                    ₹205
+                </p>
+            </div>
+
+            <div class="farmer-products">
+                <h4>Payment Status</h4>
+                <div class="product-tags">
+                    <span>✅ Paid Successfully</span>
+                </div>
+            </div>
+
+            <div class="farmer-actions">
+                <a href="homepage.html" class="btn">Back to Home</a>
+                <a href="#" class="btn secondary-btn" onclick="window.print()">Print Receipt</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="main-footer">
+    <p>© 2026 Farm & Freshness | Thank You For Supporting Farmers 🌱</p>
+</footer>
+
+</body>
+</html>

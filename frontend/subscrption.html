@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Packages | Farm & Freshness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+}
+
+header {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.plan-card {
+    background: white;
+    width: 30%;
+    min-width: 280px;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    position: relative;
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+.plan-title {
+    font-size: 22px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 26px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+}
+
+.features li {
+    margin: 8px 0;
+}
+
+.subscribe-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.subscribe-btn:hover {
+    background: #145a32;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1b5e20;
+    color: white;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌾 Flexible Subscription Packages</h1>
+    <p>Choose the Plan That Fits Your Family Needs</p>
+</header>
+
+<div class="container">
+
+    <!-- Weekly Plan -->
+    <div class="plan-card">
+        <div class="plan-title">🥕 Weekly Fresh Box</div>
+        <div class="price">₹699 / Week</div>
+        <ul class="features">
+            <li>✔ 6 Types of Vegetables</li>
+            <li>✔ 4 Kg Total</li>
+            <li>✔ Home Delivery</li>
+        </ul>
+        <button class="subscribe-btn" onclick="subscribe('Weekly Plan')">
+            Subscribe Now
+        </button>
+    </div>
+
+    <!-- Monthly Plan -->
+    <div class="plan-card">
+        <div class="badge">Most Popular</div>
+        <div class="plan-title">🥦 Monthly Family Pack</div>
+        <div class="price">₹2499 / Month</div>
+        <ul class="features">
+            <li>✔ 25+ Kg Vegetables</li>
+            <li>✔ 4 Deliveries</li>
+            <li>✔ 10% Discount</li>
+        </ul>
+        <button class="subscribe-btn" onclick="subscribe('Monthly Plan')">
+            Subscribe Now
+        </button>
+    </div>
+
+    <!-- Yearly Plan -->
+    <div class="plan-card">
+        <div class="badge">Save 20%</div>
+        <div class="plan-title">🍅 Yearly Saver Plan</div>
+        <div class="price">₹24999 / Year</div>
+        <ul class="features">
+            <li>✔ 12 Months Delivery</li>
+            <li>✔ Priority Support</li>
+            <li>✔ 20% Discount</li>
+        </ul>
+        <button class="subscribe-btn" onclick="subscribe('Yearly Plan')">
+            Subscribe Now
+        </button>
+    </div>
+
+    <!-- Festival Offer -->
+    <div class="plan-card">
+        <div class="badge">Limited Offer</div>
+        <div class="plan-title">🎉 Festival Special</div>
+        <div class="price">₹1999 / Month</div>
+        <ul class="features">
+            <li>✔ Organic Combo Pack</li>
+            <li>✔ Free Fruits Included</li>
+            <li>✔ 15% Discount</li>
+        </ul>
+        <button class="subscribe-btn" onclick="subscribe('Festival Offer')">
+            Subscribe Now
+        </button>
+    </div>
+
+    <!-- Family Combo -->
+    <div class="plan-card">
+        <div class="plan-title">👨‍👩‍👧‍👦 Family Mega Combo</div>
+        <div class="price">₹3999 / Month</div>
+        <ul class="features">
+            <li>✔ 40+ Kg Vegetables</li>
+            <li>✔ Free Delivery</li>
+            <li>✔ Free 1 Fruit Basket</li>
+        </ul>
+        <button class="subscribe-btn" onclick="subscribe('Family Combo')">
+            Subscribe Now
+        </button>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Farm & Freshness | Eat Healthy Live Healthy 🌱
+</footer>
+
+<script>
+function subscribe(planName) {
+    // Store selected plan in browser
+    localStorage.setItem("selectedPlan", planName);
+
+    // Redirect to payment page
+    window.location.href = "payment.html";
+}
+</script>

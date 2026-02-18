@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="registerpage.css">
+</head>
+<body>
+
+<div class="register-container">
+  <div class="register-box">
+
+    <h2>Create Account</h2>
+    <p>Join Farm to Customer</p>
+
+    <!-- Register Form -->
+    <form id="registerForm">
+
+      <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+
+      <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+      <input type="password" id="password" name="password" placeholder="Password" required>
+
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+
+      <button type="submit">Register</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <div class="register-footer">
+      <p>
+        Already have an account?
+        <a href="loginpage.html">Login</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const fullname = document.getElementById("fullname").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  const message = document.getElementById("message");
+
+  // check password match
+  if(password !== confirmPassword){
+
+    message.innerText = "Passwords do not match ❌";
+    return;
+
+  }
+
+  try {
+
+    const response = await fetch("http://localhost:5000/register", {
+
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        fullname: fullname,
+        email: email,
+        password: password
+      })
+
+    });
+
+    const data = await response.json();
+
+    message.innerText = data.message;
+
+    if(data.message === "Registration successful ✅"){
+
+      // redirect to login page after 2 seconds
+      setTimeout(() => {
+
+        window.location.href = "loginpage.html";
+
+      }, 2000);
+
+    }
+
+  }
+  catch(error){
+
+    message.innerText = "Server error ❌";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

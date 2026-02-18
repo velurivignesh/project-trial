@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Profile | Farm & Freshness</title>
+    <link rel="stylesheet" href="faramerprofile.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+    <h1>🌿 Farm & Freshness</h1>
+    <p>Connecting Farmers Directly With Customers</p>
+</header>
+
+<!-- ===== TOP BUTTONS SECTION ===== -->
+<div style="text-align:center; margin:15px 0;">
+
+    <!-- 📍 NEW LOCATION BUTTON -->
+    <button onclick="goToLocation()" 
+        style="padding:10px 20px; font-size:16px; cursor:pointer; 
+        background-color:#1565c0; color:white; border:none; 
+        border-radius:6px; margin-right:10px;">
+        📍 Location of Farmer
+    </button>
+
+    <!-- 📊 DASHBOARD BUTTON -->
+    <button onclick="goToDashboard()" 
+        style="padding:10px 20px; font-size:16px; cursor:pointer; 
+        background-color:#2e7d32; color:white; border:none; 
+        border-radius:6px;">
+        📊 View Farm Dashboard
+    </button>
+
+</div>
+
+<!-- ===== FARMER PROFILE SECTION ===== -->
+<div class="farmer-page">
+    <div class="farmer-card">
+
+        <!-- LEFT SIDE -->
+        <div class="farmer-left">
+            <img src="https://imgs.search.brave.com/cLBb39KwzATZArO6R2xderRx1d5IyvQvFt73drfBVPY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjIw/NzE2ODE5NC92aWRl/by9ydXJhbC1pbmRp/YW4tZmFybWVyLXR1/cmJhbi1jYXJyeWlu/Zy1hLWhvZS1vbi1z/aG91bGRlci1hbmQt/dXNpbmctc21hcnRw/aG9uZS1pbi1hZ3Jp/Y3VsdHVyZS5qcGc_/cz02NDB4NjQwJms9/MjAmYz02Z3lUeXlu/VE9xLU9CdVgtQV9j/YkpoZmN2bF9wNWdn/bnZ6LUdHWnFoVEtj/PQ" alt="Farmer Image">
+            <h2>Ramesh Kumar</h2>
+            <span class="farmer-role">Organic Farmer</span>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="farmer-right">
+
+            <h3>Farmer Details</h3>
+
+            <div class="farmer-info">
+                <div class="info-box">📍 Village: Madanapalli</div>
+                <div class="info-box">🌾 Experience: 15 Years</div>
+                <div class="info-box">📞 Contact: 9XXXXXXXXX</div>
+                <div class="info-box">🚜 Land Area: 5 Acres</div>
+            </div>
+
+            <div class="farmer-about">
+                <h4>About Farmer</h4>
+                <p>
+                    I follow 100% organic farming methods and supply
+                    fresh vegetables directly to customers without any
+                    middlemen. My goal is to provide healthy and
+                    chemical-free food to every family.
+                </p>
+            </div>
+
+            <div class="farmer-products">
+                <h4>Crops Grown</h4>
+                <div class="product-tags">
+                    <span>🍅 Tomato</span>
+                    <span>🥔 Potato</span>
+                    <span>🧅 Onion</span>
+                </div>
+            </div>
+
+            <div class="farmer-actions">
+                <a href="vegetable.html" class="btn">View Products</a>
+                <a href="homepage.html" class="btn secondary-btn">Back to Home</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="main-footer">
+    <p>© 2026 Farm & Freshness | Supporting Local Farmers 🌱</p>
+</footer>
+
+<script>
+function goToDashboard() {
+    window.location.href = "farmandfreshness.html";
+}
+
+function goToLocation() {
+    window.location.href = "location.html";
+}
+</script>
+
+</body>
+</html>

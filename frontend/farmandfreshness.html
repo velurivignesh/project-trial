@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vegetable Price Graph | Farm & Freshness</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="vegetablegraph.css">
+</head>
+
+<body>
+
+<header class="main-header">
+    <h1>🌿 Farm & Freshness</h1>
+    <p>Tomato Price Trend - Last 30 Days</p>
+
+    <!-- Vegetable Graph Button -->
+    <a href="vegitablegraph.html" class="graph-btn">
+        📊 View Vegetable Price Graph
+    </a>
+</header>
+
+<div class="graph-container">
+    <canvas id="priceChart"></canvas>
+</div>
+
+<footer class="main-footer">
+    <p>© 2026 Farm & Freshness | Market Analysis 📊</p>
+</footer>
+
+<script>
+
+const ctx = document.getElementById('priceChart').getContext('2d');
+
+const priceChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [
+            "Day 1","Day 5","Day 10","Day 15","Day 20","Day 25","Day 30"
+        ],
+        datasets: [{
+            label: 'Tomato Price (₹)',
+            data: [22, 25, 28, 30, 27, 32, 29],
+            borderColor: 'green',
+            backgroundColor: 'rgba(0,128,0,0.1)',
+            borderWidth: 3,
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>

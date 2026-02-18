@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Farm to Customer</title>
+    <link rel="stylesheet" href="admindashbord.css">
+</head>
+<body>
+
+<div class="admin-dashboard">
+
+    <!-- HEADER -->
+    <div class="admin-header">
+        <h2>Admin Dashboard</h2>
+        <p>Farm to Customer Management Panel</p>
+    </div>
+
+
+    <!-- DASHBOARD CARDS -->
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <p id="totalOrders">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pending Orders</h3>
+            <p id="pendingOrders">0</p>
+        </div>
+
+    </div>
+
+
+    <!-- ACTION BUTTONS -->
+    <div class="dashboard-actions">
+
+        <button class="dashboard-btn"
+            onclick="location.href='liveprice.html'">
+            Update Prices
+        </button>
+
+        <button class="dashboard-btn"
+            onclick="location.href='vegetable.html'">
+            View Products
+        </button>
+
+        <button class="dashboard-btn"
+            onclick="loadOrders()">
+            Refresh Orders
+        </button>
+
+    </div>
+
+
+    <!-- ORDERS TABLE -->
+    <div class="admin-table-container">
+
+        <h3 style="color:#27ae60;">Recent Orders</h3>
+
+        <table class="admin-table">
+
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="ordersTable">
+
+                <tr>
+                    <td>Vignesh</td>
+                    <td>Tomato</td>
+                    <td>2 kg</td>
+                    <td>9876543210</td>
+                    <td>
+                        <span class="status status-pending">
+                            Pending
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+<!-- BACKEND CONNECTION SCRIPT -->
+<script>
+
+async function loadOrders()
+{
+    try
+    {
+        const response = await fetch("http://localhost:5000/orders");
+
+        const orders = await response.json();
+
+        const table = document.getElementById("ordersTable");
+
+        table.innerHTML = "";
+
+        let totalOrders = orders.length;
+        let pending = 0;
+        let revenue = 0;
+
+        orders.forEach(order =>
+        {
+            if(order.status === "Pending")
+                pending++;
+
+            revenue += order.quantity * 30;
+
+            table.innerHTML += `
+                <tr>
+                    <td>${order.customerName}</td>
+                    <td>${order.productName}</td>
+                    <td>${order.quantity} kg</td>
+                    <td>${order.phone}</td>
+                    <td>
+                        <span class="status status-pending">
+                            ${order.status || "Pending"}
+                        </span>
+                    </td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("totalOrders").innerText = totalOrders;
+        document.getElementById("pendingOrders").innerText = pending;
+        document.getElementById("totalRevenue").innerText = "₹" + revenue;
+
+    }
+    catch(error)
+    {
+        console.log("Backend not connected");
+    }
+}
+
+
+// Load automatically
+loadOrders();
+
+</script>
+
+
+</body>
+</html>
