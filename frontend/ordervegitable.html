@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Page | Farm2Customer</title>
+    <link rel="stylesheet" href="ordervegitabel.css">
+</head>
+<body>
+
+<h2>Order Vegetable</h2>
+
+<p><strong>Vegetable:</strong> <span id="vegName"></span></p>
+<p><strong>Price:</strong> ₹<span id="vegPrice"></span> per kg</p>
+
+<label>Quantity (kg):</label>
+<input type="number" id="quantity" min="1" value="1">
+<br><br>
+
+<button onclick="orderstatus">orderstatus</button>
+
+<script>
+
+// Get data from localStorage
+document.getElementById("vegName").innerText = localStorage.getItem("vegName");
+document.getElementById("vegPrice").innerText = localStorage.getItem("vegPrice");
+
+function placeOrder() {
+
+    const vegetable = localStorage.getItem("vegName");
+    const quantity = document.getElementById("quantity").value;
+
+    fetch("http://localhost:5000/order", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userEmail: "test@gmail.com",   // later connect with login user
+            vegetable: vegetable,
+            quantity: quantity
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        window.location.href = "payment.html";  // optional
+    });
+
+}
+</script>
+
+</body>
+</html>

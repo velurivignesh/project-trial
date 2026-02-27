@@ -1,0 +1,61 @@
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== ORDER CONTAINER ===== */
+.order-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* ===== HEADING ===== */
+.order-container h2 {
+    margin-bottom: 20px;
+    color: #2e7d32;
+}
+
+/* ===== DETAILS TEXT ===== */
+.order-container p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* ===== INPUT FIELD ===== */
+input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* ===== BUTTON HOVER ===== */
+button:hover {
+    background-color: #1b5e20;
+    transform: scale(1.05);
+}
